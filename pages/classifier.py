@@ -2,15 +2,15 @@ import streamlit as st
 from Inference.classifierPredict import predict
 
 
-st.title("🧠 Brain Tumour Analysis Using MRI Scans")
+st.title("🧠 Brain Tumour Analysis Using MRI Scans & CT Scans")
 
 uploaded_file = st.file_uploader(
-    "Upload MRI Image", 
+    "Upload the scan Image", 
     type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is None:
-    st.info("Please upload your MRI scan")
+    st.info("Please upload your MRI scan or CT Scan")
 else:
     st.success("File uploaded successfully")
 
@@ -24,7 +24,7 @@ else:
         st.markdown("### Prediction")
 
         if st.button("Run Analysis"):
-            with st.spinner("Analyzing MRI..."):
+            with st.spinner("Analyzing..."):
                 try:
                     prediction = predict(uploaded_file)
 

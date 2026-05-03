@@ -3,20 +3,20 @@ from Inference.segment import predict_mask
 from PIL import Image
 import numpy as np
 
-st.title("🧠 Brain Tumour Segmentation Using MRI Scans")
+st.title("🧠 Brain Tumour Segmentation Using MRI Scans & CT Scans")
 
 uploaded_file = st.file_uploader(
-    "Upload MRI Image", 
+    "Upload the Scan image", 
     type=["jpg", "jpeg", "png"]
 )
 
 if uploaded_file is None:
-    st.info("Please upload your MRI scan")
+    st.info("Please upload your scan")
 else:
     st.success("File uploaded successfully")
 
     if st.button("Run Analysis"):
-        with st.spinner("Analyzing MRI..."):
+        with st.spinner("Analyzing..."):
             try:
                 overlay, mask = predict_mask(uploaded_file)
 
